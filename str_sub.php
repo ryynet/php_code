@@ -1,26 +1,25 @@
-/**
-* ×Ö·û´®½ØÈ¡£¬ÖĞÎÄ×Ö·û°´2¸ö×Ö·û¼ÆËã£¬Í¬Ê±Ö§³ÖGBKºÍUTF-8±àÂë
-* @param  $string     Òª½ØÈ¡µÄ×Ö·û´®
-* @param  $length     Òª½ØÈ¡µÄ×Ö·ûÊı
-* @param  $append     Ìí¼Óµ½×Ó´®ºóµÄÎ²°Í
-* @return ·µ»Ø½ØÈ¡ºóµÄ×Ö·û´®
-*/
-
 <?php
 
+/**
+* å­—ç¬¦ä¸²æˆªå–ï¼Œä¸­æ–‡å­—ç¬¦æŒ‰2ä¸ªå­—ç¬¦è®¡ç®—ï¼ŒåŒæ—¶æ”¯æŒGBKå’ŒUTF-8ç¼–ç 
+* @param  $string     è¦æˆªå–çš„å­—ç¬¦ä¸²
+* @param  $length     è¦æˆªå–çš„å­—ç¬¦æ•°
+* @param  $append     æ·»åŠ åˆ°å­ä¸²åçš„å°¾å·´
+* @return è¿”å›æˆªå–åçš„å­—ç¬¦ä¸²
+*/
 function substring($string, $length, $append = false) {
   if ( $length <= 0 ) {
     return '';
   }
   
-  // ¼ì²âÔ­Ê¼×Ö·û´®ÊÇ·ñÎªUTF-8±àÂë
+  // æ£€æµ‹åŸå§‹å­—ç¬¦ä¸²æ˜¯å¦ä¸ºUTF-8ç¼–ç 
   $is_utf8 = false;
   $str1 = @iconv("UTF-8", "GBK", $string);
   $str2 = @iconv("GBK", "UTF-8", $str1);
   if ( $string == $str2 ) {
     $is_utf8 = true;
     
-    // Èç¹ûÊÇUTF-8±àÂë£¬ÔòÊ¹ÓÃGBK±àÂëµÄ
+    // å¦‚æœæ˜¯UTF-8ç¼–ç ï¼Œåˆ™ä½¿ç”¨GBKç¼–ç çš„
     $string = $str1;
   }
   
